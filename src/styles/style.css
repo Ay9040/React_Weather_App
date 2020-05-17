@@ -1,0 +1,54 @@
+#userinput {
+  max-width: 50%;
+}
+
+#userinput,
+#subinput {
+  display: inline-block;
+}
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js");
+
+body {
+  font-family: "Helvetica Neue", sans-serif;
+  font-weight: lighter;
+  background: url("./images/back.png");
+  background-attachment: fixed;
+  background-size: unset;
+  color: white;
+}
+
+header {
+  width: 100%;
+  height: 10vh;
+}
+
+#subinput {
+  margin: 10px;
+}
+
+table,
+th,
+td {
+  border: 0.5px solid white;
+  color: white;
+  font-weight: lighter;
+}
+
+table {
+  align-self: center;
+  max-width: 70%;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+h1 {
+  font-size: 120px;
+}
+
+.maxmin {
+  display: inline-block;
+  margin-right: 50px;
+}
