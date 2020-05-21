@@ -93,31 +93,33 @@ class MainContent extends React.Component {
     var date = new Date(this.state.date * 1000);
     switch(this.state.main_desc){
       case "Thunderstorm":
-        document.getElementById("mydiv").className = "thunderstorm";
+        document.getElementById("root").className = "thunderstorm";
         break;
       case "Drizzle":
-        document.getElementById("mydiv").className = "drizzle";
+        document.getElementById("root").className = "drizzle";
         break;
       case "Rain":
-        document.getElementById("mydiv").className = 'rain';
+        document.getElementById("root").className = 'rain';
           break;
       case "Snow":
-        document.getElementById("mydiv").className = 'snow';
+        document.getElementById("root").className = 'snow';
         break;
       case "Atmosphere":
-        document.getElementById("mydiv").className = 'atmosphere';
+        document.getElementById("root").className = 'atmosphere';
         break;
       case "Clear":
-        document.getElementById("mydiv").className = 'clear';
+        document.getElementById("root").className = 'clear';
         break;
       case "Clouds":
-        document.getElementById("mydiv").className = 'clouds';
-          break;  
-  
+        document.getElementById("root").className = 'clouds';
+        break;
+      default:
+        document.getElementById('root').className = 'default';
+        break;
     }
     return (
       
-      <div align="center" id="mydiv" className="default">
+      <div align="center" className="default">
         <div id="inputdiv">
           <input id="userinput" type="text" className="form-control" placeholder="Enter City"></input>
           <input

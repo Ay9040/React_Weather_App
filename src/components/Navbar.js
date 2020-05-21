@@ -49,7 +49,7 @@ class NavBar extends React.Component {
       <div>
         <Router>
           <header>
-            <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
+            <MDBNavbar style = {{opacity : 0.8, backgroundColor: '#000'}} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
                   <strong>Weather</strong>
               </MDBNavbarBrand>
