@@ -23,13 +23,22 @@ class NavBar extends React.Component {
 
   renderPrecautions() {
     const required = true
+    //const required1 = false
     const element = <App prec={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderHome() {
     const required = false
+    //const required1 = false
     const element = <App prec={required} />
+    ReactDOM.render(element, document.getElementById("root"))
+  }
+
+  renderContactUs(){
+    //const required1 = true
+    const required = false
+    const element = <App prec={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
@@ -57,7 +66,7 @@ class NavBar extends React.Component {
                       <MDBNavLink to="#">About</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#">Contact us</MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderContactUs}>Contact</MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
