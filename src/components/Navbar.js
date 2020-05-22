@@ -22,37 +22,26 @@ class NavBar extends React.Component {
   }
 
   renderPrecautions() {
-<<<<<<< Updated upstream
-    const required = true
-    const element = <App prec={required}/>
-=======
-    const page = 2
+    const required = 2
     //const required1 = false
-    const element = <App page={page}/>
->>>>>>> Stashed changes
+    const element = <App page={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderHome() {
-<<<<<<< Updated upstream
-    const required = false
-    const element = <App prec={required} />
-    ReactDOM.render(element, document.getElementById("root"))
-  }
-
-=======
-    const page = 1
-    const element = <App page={page} />
+    const required = 1
+    //const required1 = false
+    const element = <App page={required} />
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderContactUs(){
-    const page = 4
-    const element = <App page={page}/>
+    //const required1 = true
+    const required = 3
+    const element = <App page={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
->>>>>>> Stashed changes
   render() {
     const bgPink = {backgroundColor: '#e91e63'}
     const container = {height: 1300}
@@ -60,7 +49,7 @@ class NavBar extends React.Component {
       <div>
         <Router>
           <header>
-            <MDBNavbar style={bgPink} dark expand="md" scrolling fixed="top">
+            <MDBNavbar style = {{opacity : 0.8, backgroundColor: '#000'}} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
                   <strong>Weather</strong>
               </MDBNavbarBrand>
@@ -77,11 +66,7 @@ class NavBar extends React.Component {
                       <MDBNavLink to="/about">About</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-<<<<<<< Updated upstream
-                    <MDBNavLink to="#">Contact us</MDBNavLink>
-=======
                     <MDBNavLink to="/contact" onClick={this.renderContactUs}>Contact</MDBNavLink>
->>>>>>> Stashed changes
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>

@@ -1,6 +1,8 @@
 import React from "react";
 import Forecast from "./Forecast"
 import ReactDOM from "react-dom"
+import "../styles/style.css"
+
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +40,7 @@ class MainContent extends React.Component {
           cityId: data["id"],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
+          main_desc: data["weather"][0]["main"],
           minTemp: data["main"]["temp_min"],
           maxTemp: data["main"]["temp_max"],
           humidity: data["main"]["humidity"],
@@ -45,6 +48,7 @@ class MainContent extends React.Component {
           date: data["dt"],
           lat: null,
           lon: null,
+          country: data["sys"]["country"],
         });
       })
       .catch(console.log);
@@ -63,6 +67,7 @@ class MainContent extends React.Component {
           cityId: data["id"],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
+          main_desc: data["weather"][0]["main"],
           minTemp: data["main"]["temp_min"],
           maxTemp: data["main"]["temp_max"],
           humidity: data["main"]["humidity"],
@@ -70,6 +75,8 @@ class MainContent extends React.Component {
           date: data["dt"],
           lat: null,
           lon: null,
+          country: data["sys"]["country"],
+          
         });
         console.log(data);
       })
@@ -77,17 +84,44 @@ class MainContent extends React.Component {
     this.render();
   }
 
+  
   displayForecast() {
     ReactDOM.render(< Forecast city={this.state.cityId}/>, document.getElementById("root"))
   }
 
   render() {
     var date = new Date(this.state.date * 1000);
-
+    switch(this.state.main_desc){
+      case "Thunderstorm":
+        document.getElementById("root").className = "thunderstorm";
+        break;
+      case "Drizzle":
+        document.getElementById("root").className = "drizzle";
+        break;
+      case "Rain":
+        document.getElementById("root").className = 'rain';
+          break;
+      case "Snow":
+        document.getElementById("root").className = 'snow';
+        break;
+      case "Atmosphere":
+        document.getElementById("root").className = 'atmosphere';
+        break;
+      case "Clear":
+        document.getElementById("root").className = 'clear';
+        break;
+      case "Clouds":
+        document.getElementById("root").className = 'clouds';
+        break;
+      default:
+        document.getElementById('root').className = 'default';
+        break;
+    }
     return (
-      <div align="center">
+      
+      <div align="center" className="default">
         <div id="inputdiv">
-          <input id="userinput" type="text" className="form-control"></input>
+          <input id="userinput" type="text" className="form-control" placeholder="Enter City"></input>
           <input
             id="subinput"
             className="btn btn-primary"
@@ -96,12 +130,12 @@ class MainContent extends React.Component {
             onClick={this.getWeatheratCity}
           />
         </div>
-        <h2>{this.state.name}</h2>
-        <h1>{this.state.Temperature + "°C"}</h1>
+    <h2 id="cityname">{this.state.name}, {this.state.country}</h2>
+        <h1>{this.state.Temperature}<span>°C</span></h1>
         <div>
           <h2 className="maxmin">{"Max Temp: " + this.state.maxTemp + "°C"}</h2>
           <h2 className="maxmin">{"Min Temp: " + this.state.minTemp + "°C"}</h2>
-          <h2>{this.state.desc}</h2>
+          <h2 id="desc">{this.state.desc}</h2>
         </div>
         <div>
           <input
@@ -113,13 +147,13 @@ class MainContent extends React.Component {
         </div>
         <div>
           <br />
-          <h4>
+          <h4 id="time">
             {date.toLocaleTimeString([], {
               hour: "2-digit",
               minute: "2-digit",
             })}
           </h4>
-          <h4>{date.toLocaleDateString()}</h4>
+          <h4 id = "date">{date.toLocaleDateString()}</h4>
         </div>
       </div>
     );
