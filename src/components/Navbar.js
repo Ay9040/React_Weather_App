@@ -22,17 +22,37 @@ class NavBar extends React.Component {
   }
 
   renderPrecautions() {
+<<<<<<< Updated upstream
     const required = true
     const element = <App prec={required}/>
+=======
+    const page = 2
+    //const required1 = false
+    const element = <App page={page}/>
+>>>>>>> Stashed changes
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderHome() {
+<<<<<<< Updated upstream
     const required = false
     const element = <App prec={required} />
     ReactDOM.render(element, document.getElementById("root"))
   }
 
+=======
+    const page = 1
+    const element = <App page={page} />
+    ReactDOM.render(element, document.getElementById("root"))
+  }
+
+  renderContactUs(){
+    const page = 4
+    const element = <App page={page}/>
+    ReactDOM.render(element, document.getElementById("root"))
+  }
+
+>>>>>>> Stashed changes
   render() {
     const bgPink = {backgroundColor: '#e91e63'}
     const container = {height: 1300}
@@ -51,13 +71,17 @@ class NavBar extends React.Component {
                       <MDBNavLink to="" onClick={this.renderHome}>Home</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="" onClick={this.renderPrecautions}>Precautions</MDBNavLink>
+                      <MDBNavLink to="/prec" onClick={this.renderPrecautions}>Precautions</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="#">About</MDBNavLink>
+                      <MDBNavLink to="/about">About</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
+<<<<<<< Updated upstream
                     <MDBNavLink to="#">Contact us</MDBNavLink>
+=======
+                    <MDBNavLink to="/contact" onClick={this.renderContactUs}>Contact</MDBNavLink>
+>>>>>>> Stashed changes
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
