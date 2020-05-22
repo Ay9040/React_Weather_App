@@ -21,7 +21,7 @@ const contact = [
     <tr>
       <td key={row.name}>{row.name}</td>
       <td key={row.phone}>{row.phone}</td>
-      <td> key={row.email}>{row.email}</td>
+      <td key={row.email}>{row.email}</td>
     </tr>
   );
   
@@ -40,7 +40,7 @@ const contact = [
   
   class Contact extends React.Component {
     render() {
-      return <Table data={precautions} />;
+      return <Table data={contact} />;
     }
   }
 
