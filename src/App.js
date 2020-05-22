@@ -26,6 +26,7 @@ function App(props) {
     );
   }
   else if (required === 3) {
+    document.getElementById('root').setAttribute('background', './styles/images/back.png')
     return (<div>
       <NavBar />
       <div align="center">

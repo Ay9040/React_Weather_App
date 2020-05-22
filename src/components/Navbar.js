@@ -43,7 +43,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const bgPink = {backgroundColor: '#e91e63'}
     const container = {height: 1300}
     return(
       <div>
