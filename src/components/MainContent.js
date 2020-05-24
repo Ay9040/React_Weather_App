@@ -107,6 +107,15 @@ class MainContent extends React.Component {
       case "Atmosphere":
         document.getElementById("root").className = 'atmosphere';
         break;
+      case "Haze":
+        document.getElementById("root").className = 'atmosphere';
+        break;
+      case "Mist":
+        document.getElementById("root").className = 'atmosphere';
+        break;
+      case "Dust":
+        document.getElementById("root").className = 'atmosphere';
+        break;      
       case "Clear":
         document.getElementById("root").className = 'clear';
         break;

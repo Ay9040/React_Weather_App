@@ -51,7 +51,7 @@ class Forecast extends React.Component{
                 })}
             </table>
         );
-
+        document.getElementById("root").className="default";        
 
         return (<div>
             <NavBar />

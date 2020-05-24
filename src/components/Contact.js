@@ -1,7 +1,10 @@
 import React from 'react';
+
   
   class Contact extends React.Component {
     render() {
+      document.getElementById("root").className="default";
+
       return (<div class='info'>
         <div class='card'>
           <i class="card-icon fa fa-envelope"></i>
@@ -9,7 +12,7 @@ import React from 'react';
         </div>
         <div class='card'>
               <i class="card-icon fa fa-phone"></i>
-              <p>9876053214<br/>8126754621<br/>7987239069</p>
+              <p>9876053214<br/>8104632457<br/>7987239069</p>
         </div>
         <div class='card'>
           <i class="card-icon fa fa-location-arrow"></i>

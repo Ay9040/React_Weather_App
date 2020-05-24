@@ -42,6 +42,12 @@ class NavBar extends React.Component {
     ReactDOM.render(element, document.getElementById("root"))
   }
 
+  renderAbout(){
+    const required = 4
+    const element = <App page={required}/>
+    ReactDOM.render(element, document.getElementById("root"))
+  }
+
   render() {
     const container = {height: 1300}
     return(
@@ -50,7 +56,7 @@ class NavBar extends React.Component {
           <header>
             <MDBNavbar style = {{opacity : 0.8, backgroundColor: '#000'}} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
-                  <strong>Weather</strong>
+                  <strong>Weather<i class="fa fa-cloud" aria-hidden="true"></i></strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
@@ -62,7 +68,7 @@ class NavBar extends React.Component {
                       <MDBNavLink to="/prec" onClick={this.renderPrecautions}>Precautions</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="/about">About</MDBNavLink>
+                      <MDBNavLink to="/about" onClick={this.renderAbout}>About</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBNavLink to="/contact" onClick={this.renderContactUs}>Contact</MDBNavLink>
@@ -70,13 +76,13 @@ class NavBar extends React.Component {
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-facebook-square" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-twitter" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-instagram" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
