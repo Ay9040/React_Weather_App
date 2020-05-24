@@ -37,6 +37,8 @@ const Table = ({ data }) => (
 
 class Precautions extends React.Component {
   render() {
+    document.getElementById("root").className="default";
+
     return <Table data={precautions} />;
   }
 }

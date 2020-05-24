@@ -22,28 +22,33 @@ class NavBar extends React.Component {
   }
 
   renderPrecautions() {
-    const required = true
+    const required = 2
     //const required1 = false
-    const element = <App prec={required}/>
+    const element = <App page={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderHome() {
-    const required = false
+    const required = 1
     //const required1 = false
-    const element = <App prec={required} />
+    const element = <App page={required} />
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   renderContactUs(){
     //const required1 = true
-    const required = false
-    const element = <App prec={required}/>
+    const required = 3
+    const element = <App page={required}/>
+    ReactDOM.render(element, document.getElementById("root"))
+  }
+
+  renderAbout(){
+    const required = 4
+    const element = <App page={required}/>
     ReactDOM.render(element, document.getElementById("root"))
   }
 
   render() {
-    const bgPink = {backgroundColor: '#e91e63'}
     const container = {height: 1300}
     return(
       <div>
@@ -60,24 +65,24 @@ class NavBar extends React.Component {
                       <MDBNavLink to="" onClick={this.renderHome}>Home</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="" onClick={this.renderPrecautions}>Precautions</MDBNavLink>
+                      <MDBNavLink to="/prec" onClick={this.renderPrecautions}>Precautions</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                      <MDBNavLink to="#">About</MDBNavLink>
+                      <MDBNavLink to="/about" onClick={this.renderAbout}>About</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="" onClick={this.renderContactUs}>Contact</MDBNavLink>
+                    <MDBNavLink to="/contact" onClick={this.renderContactUs}>Contact</MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="facebook-f" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-facebook-square" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="twitter" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-twitter" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="#"><MDBIcon fab icon="instagram" /></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-instagram" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
