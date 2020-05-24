@@ -8,19 +8,19 @@ class Precautions extends React.Component {
       <div className="precautions_body">
         <div className="weather_card">
           <h2 className="card_name prec_rainy">Rainy</h2>
-          <p className="para_rain">Carry an Umbrella<br></br>Wear a raincoat</p>
+          <p className="para_rain"><ul><li>Carry an Umbrella</li><li>Wear a raincoat</li></ul></p>
         </div>
         <div className="weather_card">
           <h2 className="card_name prec_clear">Clear</h2>
-          <p className="para_clear">Carry an Umbrella<br></br>water bottle</p>
+          <p className="para_clear"><ul><li>Carry an Umbrella</li><li>water bottle</li></ul></p>
         </div>
         <div className="weather_card">
           <h2 className="card_name prec_snowy">Snowy</h2>
-          <p className="para_snow">Wear warm clothes</p>
+          <p className="para_snow"><ul><li>Wear warm clothes</li></ul></p>
         </div>
         <div className="weather_card">
-          <h2 className="card_name prec_atmospheric">Atmospheric</h2>
-          <p className="para_atmo">Wear a mask</p>
+          <h2 className="card_name prec_atmospheric">Fog/Mist</h2>
+          <p className="para_atmo"><ul><li>Wear a mask</li></ul></p>
         </div>
       </div>
     )
