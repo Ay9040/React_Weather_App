@@ -56,7 +56,7 @@ class NavBar extends React.Component {
           <header>
             <MDBNavbar style = {{opacity : 0.8, backgroundColor: '#000'}} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
-                  <strong>Weather</strong>
+                  <strong>Weather<i class="fa fa-cloud" aria-hidden="true"></i></strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>

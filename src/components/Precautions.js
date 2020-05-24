@@ -1,45 +1,29 @@
 import React from "react";
-import "../styles/precautions.css"
 
-const precautions = [
-  {
-    condition: "Clear Sky",
-    premeasure: "No precautions",
-  },
-  {
-    condition: "Raining",
-    premeasure: "Umbrella",
-  },
-  {
-    condition: "Winter",
-    premeasure: "Warm Clothes",
-  },
-];
-
-const TableRow = ({ row }) => (
-  <tr>
-    <td key={row.condition}>{row.condition}</td>
-    <td key={row.premeasure}>{row.premeasure}</td>
-  </tr>
-);
-
-const Table = ({ data }) => (
-  <table className="table">
-    <tr>
-      <th>Weather Conditions</th>
-      <th>Precautionary Measures</th>
-    </tr>
-    {data.map((row) => {
-      return <TableRow row={row} />;
-    })}
-  </table>
-);
 
 class Precautions extends React.Component {
   render() {
     document.getElementById("root").className="default";
-
-    return <Table data={precautions} />;
+    return(
+      <div className="precautions_body">
+        <div className="weather_card">
+          <h2 className="card_name prec_rainy">Rainy</h2>
+          <p className="para_rain">Carry an Umbrella<br></br>Wear a raincoat</p>
+        </div>
+        <div className="weather_card">
+          <h2 className="card_name prec_clear">Clear</h2>
+          <p className="para_clear">Carry an Umbrella<br></br>water bottle</p>
+        </div>
+        <div className="weather_card">
+          <h2 className="card_name prec_snowy">Snowy</h2>
+          <p className="para_snow">Wear warm clothes</p>
+        </div>
+        <div className="weather_card">
+          <h2 className="card_name prec_atmospheric">Atmospheric</h2>
+          <p className="para_atmo">Wear a mask</p>
+        </div>
+      </div>
+    )
   }
 }
 

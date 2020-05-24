@@ -6,6 +6,9 @@ import React from 'react';
       document.getElementById("root").className="default";
 
       return (<div class='info'>
+        <h2 className="p1">Email</h2>
+        <h2 className="p2">Phone</h2>
+        <h2 className="p3">Location</h2>
         <div class='card'>
           <i class="card-icon fa fa-envelope"></i>
           <p>ayush.khade@somaiya.edu<br/>kaushik.metha@somaiya.edu<br/>saurabh.nambiar@somaiya.edu</p>
