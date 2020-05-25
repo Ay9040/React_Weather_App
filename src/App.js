@@ -6,14 +6,13 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 function App(props) {
   const required = props.page;
-  console.log(required);
 
   if (required === 1) {
     document.body.style.overflow = 'visible'
     return (
       <div>
         <NavBar />
-        <MainContent />
+        <MainContent units={'metric'}/>
       </div>
     );
   } else if(required === 2) {

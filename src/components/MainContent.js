@@ -3,6 +3,8 @@ import Forecast from "./Forecast"
 import ReactDOM from "react-dom"
 import "../styles/style.css"
 
+var cityId = 1254661;
+
 class MainContent extends React.Component {
   constructor(props) {
     super(props);
@@ -10,17 +12,19 @@ class MainContent extends React.Component {
       weatherData: null,
       lat: null,
       lon: null,
+      units: this.props.units,
     };
 
     this.getWeather = this.getWeather.bind(this);
     this.getWeatheratCity = this.getWeatheratCity.bind(this);
-    this.displayForecast = this.displayForecast.bind(this)
+    this.displayForecast = this.displayForecast.bind(this);
+    this.changeUnits = this.changeUnits.bind(this);
+    this.getWeatherById = this.getWeatherById.bind(this);
   }
 
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position.coords.latitude);
         this.getWeather(position.coords.latitude, position.coords.longitude);
       });
     }
@@ -46,24 +50,29 @@ class MainContent extends React.Component {
           humidity: data["main"]["humidity"],
           name: data["name"],
           date: data["dt"],
-          lat: null,
-          lon: null,
+          lat: lat,
+          lon: lon,
           country: data["sys"]["country"],
+          units: 'metric',
         });
+        cityId = data['id'];
       })
       .catch(console.log);
+    
+    
   }
 
   getWeatheratCity() {
     var city = document.getElementById("userinput").value;
+    var units = this.state.units
     fetch(
       "http://api.openweathermap.org/data/2.5/weather?q=" +
         city +
-        "&units=metric&appid=c1547e16f89f47b9711cb39aa31ce3a9"
+        "&units="+ units +"&appid=c1547e16f89f47b9711cb39aa31ce3a9"
     )
       .then((res) => res.json())
       .then((data) => {
-        this.setState({
+        this.setState((prevState) => ({
           cityId: data["id"],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
@@ -73,20 +82,68 @@ class MainContent extends React.Component {
           humidity: data["main"]["humidity"],
           name: data["name"],
           date: data["dt"],
-          lat: null,
-          lon: null,
+          lat: prevState.lat,
+          lon: prevState.lon,
           country: data["sys"]["country"],
-          
-        });
-        console.log(data);
+          units: units,
+        }));
+        cityId = data['id'];
+      }
+      ).catch(console.log);
+    this.render();
+  }
+
+  getWeatherById(units) {
+    fetch(
+      "http://api.openweathermap.org/data/2.5/weather?id=" +
+      cityId + "&units=" + units + "&appid=c1547e16f89f47b9711cb39aa31ce3a9"
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState((prevState) => ({
+          cityId: data["id"],
+          Temperature: data["main"]["temp"],
+          desc: data["weather"][0]["description"],
+          main_desc: data["weather"][0]["main"],
+          minTemp: data["main"]["temp_min"],
+          maxTemp: data["main"]["temp_max"],
+          humidity: data["main"]["humidity"],
+          name: data["name"],
+          date: data["dt"],
+          lat: prevState.lat,
+          lon: prevState.lon,
+          country: data["sys"]["country"],
+          units: units,
+        }));
       })
       .catch(console.log);
     this.render();
   }
 
-  
   displayForecast() {
-    ReactDOM.render(< Forecast city={this.state.cityId}/>, document.getElementById("root"))
+    ReactDOM.render(< Forecast units={this.state.units} city={this.state.cityId}/>, document.getElementById("root"))
+  }
+
+  changeUnits() {
+    if (this.state.units === 'metric') {
+      this.setState((prevState) => ({
+        weatherData: null,
+        lat: prevState.lat,
+        lon: prevState.lon,
+        units: 'imperial',
+      }))
+      this.getWeatherById('imperial')
+    }
+    else {
+      this.setState((prevState) => ({
+        weatherData: null,
+        lat: prevState.lat,
+        lon: prevState.lon,
+        units: 'metric',
+      }))
+      this.getWeatherById('metric')
+    }
+    
   }
 
   render() {
@@ -139,11 +196,13 @@ class MainContent extends React.Component {
             onClick={this.getWeatheratCity}
           />
         </div>
-    <h2 id="cityname">{this.state.name}, {this.state.country}</h2>
-        <h1>{this.state.Temperature}<span>°C</span></h1>
+        <button className="btn btn-primary" onClick={this.changeUnits} >Change Units</button>
+        <h2 id="cityname">{this.state.name}, {this.state.country}</h2>
+
+        <h1>{this.state.Temperature}<span>{(this.state.units === 'metric' ? "°C" : "°F")}</span></h1>
         <div>
-          <h2 className="maxmin">{"Max Temp: " + this.state.maxTemp + "°C"}</h2>
-          <h2 className="maxmin">{"Min Temp: " + this.state.minTemp + "°C"}</h2>
+          <h2 className="maxmin">{"Max Temp: " + this.state.maxTemp + (this.state.units === 'metric' ? "°C" : "°F")}</h2>
+          <h2 className="maxmin">{"Min Temp: " + this.state.minTemp + (this.state.units === 'metric' ? "°C" : "°F")}</h2>
           <h2 id="desc">{this.state.desc}</h2>
         </div>
         <div>
@@ -162,7 +221,7 @@ class MainContent extends React.Component {
               minute: "2-digit",
             })}
           </h4>
-          <h4 id = "date">{date.toLocaleDateString()}</h4>
+          <h4 id="date">{date.toLocaleDateString()}</h4>
         </div>
       </div>
     );

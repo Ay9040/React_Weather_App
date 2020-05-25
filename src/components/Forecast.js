@@ -19,7 +19,7 @@ class Forecast extends React.Component{
         fetch(
             "http://api.openweathermap.org/data/2.5/forecast?id=" +
             cityid +
-            "&units=metric&appid=c1547e16f89f47b9711cb39aa31ce3a9"
+            "&units=" + this.props.units +"&appid=c1547e16f89f47b9711cb39aa31ce3a9"
         ).then((res) => res.json())
             .then((Data) => {
                 this.setState({
@@ -33,8 +33,8 @@ class Forecast extends React.Component{
             <tr>
                 <td key={row.dt_txt}>{row.dt_txt}</td>
                 <td key={row.weather[0].description}>{row.weather[0].description}</td>
-                <td key={row.main.temp}>{row.main.temp + "°C"}</td>
-                <td key={row.main.feels_like}>{row.main.feels_like + "°C"}</td>
+                <td key={row.main.temp}>{row.main.temp + (this.props.units === 'metric' ? "°C" : "°F")}</td>
+                <td key={row.main.feels_like}>{row.main.feels_like + (this.props.units === 'metric' ? "°C" : "°F")}</td>
             </tr>
         );
 

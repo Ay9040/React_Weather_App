@@ -7,6 +7,7 @@ import "../styles/style.css"
 
 
 class NavBar extends React.Component {
+  
   constructor(props) {
       super(props);
       this.state = {
@@ -56,7 +57,7 @@ class NavBar extends React.Component {
           <header>
             <MDBNavbar style = {{opacity : 0.8, backgroundColor: '#000'}} dark expand="md" scrolling fixed="top">
               <MDBNavbarBrand href="/">
-                  <strong>Weather<i class="fa fa-cloud" aria-hidden="true"></i></strong>
+                  <strong>Weather<i className="fa fa-cloud" aria-hidden="true"></i></strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={ this.onClick } />
               <MDBCollapse isOpen = { this.state.collapse } navbar>
@@ -76,13 +77,13 @@ class NavBar extends React.Component {
                 </MDBNavbarNav>
                 <MDBNavbarNav right>
                   <MDBNavItem>
-                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-facebook-square" aria-hidden="true"></i></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" className="fa fa-facebook-square" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-twitter" aria-hidden="true"></i></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" className="fa fa-twitter" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" class="fa fa-instagram" aria-hidden="true"></i></MDBNavLink>
+                    <MDBNavLink to="" onClick={this.renderHome}><i id="navicon" className="fa fa-instagram" aria-hidden="true"></i></MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
