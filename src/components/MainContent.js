@@ -165,13 +165,13 @@ class MainContent extends React.Component {
         document.getElementById("root").className = 'atmosphere';
         break;
       case "Haze":
-        document.getElementById("root").className = 'atmosphere';
+        document.getElementById("root").className = 'haze';
         break;
       case "Mist":
-        document.getElementById("root").className = 'atmosphere';
+        document.getElementById("root").className = 'mist';
         break;
       case "Dust":
-        document.getElementById("root").className = 'atmosphere';
+        document.getElementById("root").className = 'dust';
         break;      
       case "Clear":
         document.getElementById("root").className = 'clear';
@@ -179,6 +179,8 @@ class MainContent extends React.Component {
       case "Clouds":
         document.getElementById("root").className = 'clouds';
         break;
+      case "Fog":
+        document.getElementById("root").className = 'fog';  
       default:
         document.getElementById('root').className = 'default';
         break;

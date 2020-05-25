@@ -74,14 +74,35 @@ body, html {
 }
 
 .atmosphere{
-  background: url("./images/atmosphere.jpg");
+  background: url("./images/haze.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-    background-position: center;
-
+  background-position: center;
 }
 
+.haze{
+  background: url("./images/haze.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mist, .fog{
+  background: url("./images/mist.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.dust{
+  background: url("./images/dust.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 .clouds{
   background: url("./images/clouds.jpg");
   background-attachment: fixed;
