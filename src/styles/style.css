@@ -202,11 +202,19 @@ h4{
 }
 
 #date{
+  position: relative;
+  text-align: left;
+  bottom: 350px;
+  left: 100px;
+  color: #FFF;
+}
+
+.CurrentPrec{
   position: absolute;
-  text-align: right;
+  text-align: left;
   bottom: 350px;
   right: 100px;
-  color: #FFF;
+  color: #fff;
 }
 
 table,

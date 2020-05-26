@@ -199,6 +199,39 @@ class MainContent extends React.Component {
         document.getElementById('root').className = 'default';
         break;
     }
+
+    var precList;
+
+    switch (this.state.main_desc) {
+      case 'Clear':
+        precList = ['Stay hydrated', 'Use sunscreen', 'Wear a hat','Avoid direct sun'];
+        break;
+      case 'Clouds':
+      case 'Drizzle':
+      case 'Rain':
+      case 'Thunderstorm':
+        precList = ['Carry an Umbrella', 'Wear a raincoat', 'Avoid getting wet','Stay sanitized'];
+        break;
+      case 'Snow':
+        precList = ['Wear warm clothes', 'Avoid Driving','Have warm drinks']
+        break;
+      default:
+        precList = ['Wear a mask', 'Drive Slowly','Use headlights and horn while driving']
+        break;
+    } 
+
+    const ListItem = ({ point }) => (
+      <li>{point}</li>
+    );
+
+    const List = ({ data }) => (
+      <ul className = "CurrentPrec">
+        {data.map((point) => {
+          return <ListItem point={point} />;
+        })}
+      </ul>
+    );
+
     return (
       
       <div align="center" className="default">
@@ -241,6 +274,7 @@ class MainContent extends React.Component {
             })}
           </h4>
           <h4 id="date">{date.toLocaleDateString()}</h4>
+          <List data={precList} />
         </div>
       </div>
     );
