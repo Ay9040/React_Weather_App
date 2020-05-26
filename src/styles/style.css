@@ -20,8 +20,8 @@
 body, html {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: lighter;
-  height: 100%;
-  background-image: url("./images/back.png");
+  background: url("./images/back.png");
+  
 }
 
 #root{
@@ -34,7 +34,7 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-
+  
 }
 
 .thunderstorm{
@@ -108,7 +108,7 @@ body, html {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-    background-position: center;
+  background-position: center;
 }
 
 header {
@@ -240,6 +240,15 @@ tr{
 }
 
 /* Contact */
+
+.get_in_touch{
+  color: white;
+  position: absolute;
+  font-size: 70px;
+  font-family: cursive;
+  text-shadow: 2px 2px #ff6348;
+}
+
 .info{
     display: flex;
     width: 100%;
@@ -299,6 +308,13 @@ tr{
 
 /*Contact and Main Content*/
 @media screen and (max-width: 800px){
+
+    .get_in_touch{
+      font-size: 50px;
+      transform: rotate(-90deg);
+      left:0;
+    }
+
     .info{
         flex-direction: column;
     }
@@ -312,16 +328,17 @@ tr{
     #time{
       position: absolute;
       text-align: left;
-      bottom: 15px;
-      left: 100px;
+      left: 30px;
+      top: 140px;
       color: #FFF;
+
     }
     
     #date{
       position: absolute;
       text-align: right;
-      bottom: 15px;
-      right: 100px;
+      top: 140px;
+      right: 30px;
       color: #FFF;
     }
     
@@ -537,35 +554,12 @@ tr{
 
 /*About*/
 
-.image{
-  position: absolute;
-  top: 0%;
-  height: 34%;
-  width: 100%;
- 
-}
-.image2{
-  position: absolute;
-  top: 34%;
-  width: 100%;
-  height: 33%;
- 
-}
-.image3{
-  position: absolute;
-  top: 67%;
-  width: 100%;
-  height: auto;
- 
-}
-
-
 .head{
   font-size: 55px;
   color: white;
   text-align: center;
   font-family: cursive;
-  padding-top: 70px;
+  padding-top: 0px;
 }
 
 
@@ -582,4 +576,9 @@ tr{
   font-size: 40px;
   font-family: cursive;
   color: white;
+}
+
+@media screen and (max-width: 800px)
+{
+
 }

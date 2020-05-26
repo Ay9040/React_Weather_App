@@ -6,6 +6,7 @@ import React from 'react';
       document.getElementById("root").className="default";
 
       return (<div class='info'>
+        <h2 className="get_in_touch">GET IN TOUCH</h2>
         <div class='card'>
           <i class="card-icon fa fa-envelope"></i>
           <p>ayush.khade@somaiya.edu<br/>kaushik.metha@somaiya.edu<br/>saurabh.nambiar@somaiya.edu</p>
