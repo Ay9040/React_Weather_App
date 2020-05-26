@@ -3,6 +3,7 @@ import React from "react";
 
 class Precautions extends React.Component {
   render() {
+
     document.getElementById("root").className="default";
     return(
       <div className="precautions_body">

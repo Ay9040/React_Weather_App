@@ -20,8 +20,7 @@
 body, html {
   font-family: "Helvetica Neue", sans-serif;
   font-weight: lighter;
-  background: url("./images/back.png");
-  
+  background: url("./images/back.png"); 
 }
 
 #root{
@@ -202,9 +201,9 @@ h4{
 }
 
 #date{
-  position: relative;
+  position: absolute;
   text-align: left;
-  bottom: 350px;
+  bottom: 270px;
   left: 100px;
   color: #FFF;
 }
@@ -212,10 +211,14 @@ h4{
 .CurrentPrec{
   position: absolute;
   text-align: left;
-  bottom: 350px;
-  right: 100px;
-  color: #fff;
+  bottom: 270px;
+  right: 60px;
+  color: burlywood;
+  font-size: x-large;
+  text-shadow: 1px 1px #000930;
+  list-style: none;
 }
+
 
 table,
 th,
@@ -349,7 +352,10 @@ tr{
       right: 30px;
       color: #FFF;
     }
-    
+    .CurrentPrec{
+      position: absolute;
+      left: 20px;
+    }
 }
 
 
