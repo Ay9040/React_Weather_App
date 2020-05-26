@@ -42,6 +42,7 @@ class MainContent extends React.Component {
       .then((data) => {
         this.setState({
           cityId: data["id"],
+          icon: data['weather'][0]['icon'],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
           main_desc: data["weather"][0]["main"],
@@ -58,8 +59,6 @@ class MainContent extends React.Component {
         cityId = data['id'];
       })
       .catch(console.log);
-    
-    
   }
 
   getWeatheratCity() {
@@ -74,6 +73,7 @@ class MainContent extends React.Component {
       .then((data) => {
         this.setState((prevState) => ({
           cityId: data["id"],
+          icon: data['weather'][0]['icon'],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
           main_desc: data["weather"][0]["main"],
@@ -102,6 +102,7 @@ class MainContent extends React.Component {
       .then((data) => {
         this.setState((prevState) => ({
           cityId: data["id"],
+          icon: data['weather'][0]['icon'],
           Temperature: data["main"]["temp"],
           desc: data["weather"][0]["description"],
           main_desc: data["weather"][0]["main"],
@@ -197,8 +198,11 @@ class MainContent extends React.Component {
             value="submit"
             onClick={this.getWeatheratCity}
           />
+          <button className="btn btn-primary" onClick={this.changeUnits} >Change Units</button>
         </div>
-        <button className="btn btn-primary" onClick={this.changeUnits} >Change Units</button>
+        <div>
+          <img id='icon' src={'http://openweathermap.org/img/wn/' + this.state.icon + '@4x.png'} style={{ width: 150, height: 150 }} />
+        </div>
         <h2 id="cityname">{this.state.name}, {this.state.country}</h2>
 
         <h1>{this.state.Temperature}<span>{(this.state.units === 'metric' ? "°C" : "°F")}</span></h1>
@@ -229,5 +233,6 @@ class MainContent extends React.Component {
     );
   }
 }
+
 
 export default MainContent;
