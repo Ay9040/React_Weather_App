@@ -20,12 +20,14 @@ class MainContent extends React.Component {
     this.displayForecast = this.displayForecast.bind(this);
     this.changeUnits = this.changeUnits.bind(this);
     this.getWeatherById = this.getWeatherById.bind(this);
+    this.getTime = this.getTime.bind(this);
   }
 
   componentDidMount() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.getWeather(position.coords.latitude, position.coords.longitude);
+        //this.getTime();
       });
     }
   }
@@ -50,9 +52,8 @@ class MainContent extends React.Component {
           maxTemp: data["main"]["temp_max"],
           humidity: data["main"]["humidity"],
           name: data["name"],
-          date: data["dt"],
-          lat: lat,
-          lon: lon,
+          lat: data['coord']['lat'],
+          lon: data['coord']['lon'],
           country: data["sys"]["country"],
           units: 'metric',
         });
@@ -81,9 +82,8 @@ class MainContent extends React.Component {
           maxTemp: data["main"]["temp_max"],
           humidity: data["main"]["humidity"],
           name: data["name"],
-          date: data["dt"],
-          lat: prevState.lat,
-          lon: prevState.lon,
+          lat: data['coord']['lat'],
+          lon: data['coord']['lon'],
           country: data["sys"]["country"],
           units: units,
         }));
@@ -91,6 +91,7 @@ class MainContent extends React.Component {
       }
       ).catch(console.log);
     this.render();
+    //this.getTime();
   }
 
   getWeatherById(units) {
@@ -110,15 +111,15 @@ class MainContent extends React.Component {
           maxTemp: data["main"]["temp_max"],
           humidity: data["main"]["humidity"],
           name: data["name"],
-          date: data["dt"],
-          lat: prevState.lat,
-          lon: prevState.lon,
+          lat: data['coord']['lat'],
+          lon: data['coord']['lon'],
           country: data["sys"]["country"],
           units: units,
         }));
       })
       .catch(console.log);
     this.render();
+    //this.getTime();
   }
 
   displayForecast() {
@@ -144,12 +145,24 @@ class MainContent extends React.Component {
       }))
       this.getWeatherById('metric')
     }
-    
+  }
+
+  getTime() {
+    fetch("http://api.timezonedb.com/v2.1/get-time-zone?key=E05R94DP210Z&format=json&by=position&lat="
+          + this.state.lat + "&lng=" + this.state.lon)
+      .then((res) => res.json())
+      .then((data) => {
+        this.setState({
+          date: data['formatted'],
+        });
+      });
   }
 
   render() {
-    var date = new Date(this.state.date * 1000);
-    switch(this.state.main_desc){
+    this.getTime()
+    var date = new Date(this.state.date)
+
+    switch (this.state.main_desc) {
       case "Thunderstorm":
         document.getElementById("root").className = "thunderstorm";
         break;
